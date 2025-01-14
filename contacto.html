@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Emprendimiento SiteCraft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Moirai+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header tabindex="0">
+        <a href="index.html">
+            <h1>Site Craft</h1>
+        </a>
+    </header>
+    <div class="main-content">
+        <div class="content">
+            <div class="TituloFomulario">
+                <a href="index.html" tabindex="0" aria-label="Regresar a la página principal">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <h2 tabindex="0">Formulario de Contacto</h2>
+                <a href="index.html" tabindex="0" aria-label="Regresar a la página principal">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </a>
+            </div>
+            
+            <form class="contact-form">
+                <label for="nombre" tabindex="0">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" aria-label="Ingresa tu nombre completo Campo Obligatorio" tabindex="0" required >
+                
+                <label for="email" tabindex="0">Email:</label>
+                <input type="email" id="email" name="email" aria-label="Ingresa tu correo Campo Obligatorio" tabindex="0"required>
+                
+                <label for="numero" tabindex="0">Número:</label>
+                <input type="tel" id="numero" name="numero" aria-label="Ingresa tu numero Campo Obligatorio" tabindex="0" required>
+                
+                <label for="mensaje" tabindex="0">Aqui dinos tus requisitos:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" aria-label="Ingresa los requisitos Campo Obligatorio" tabindex="0" required></textarea>
+                
+                <button type="submit" tabindex="0">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <div id="contact-alert-box" class="alert-box">
+        <i class="fa-solid fa-check"></i>
+        <p>Enviado correctamente, te contactaremos pronto</p>
+    </div>
+    <footer>
+        <p tabindex="0">Suscribete para más</p>
+        <div class="form" >
+            <input class="correo" type="email" placeholder="Ingresa tu correo electrónico" aria-label="Ingresa tu correo electrónico" tabindex="0">
+            <button class="sub" onclick="showAlert()" tabindex="0">Suscríbete</button>
+        </div>
+        <div id="alert-box" class="alert-box" role="alert" aria-live="polite" aria-label="Alerta Suscrito exitosamente">
+            <i class="fa-solid fa-check"></i>
+            <p>Suscrito</p>
+        </div>        
+    </footer>
+</body>
+<script>
+    function showAlert() {
+        var alertBox = document.getElementById('alert-box');
+        alertBox.style.display = 'flex';
+        setTimeout(function () {
+            alertBox.style.display = 'none';
+            document.querySelector('header').focus(); // Regresar el enfoque al header
+        }, 3000); // Ocultar después de 3 segundos
+        document.querySelector('.correo').value = ''; // Borrar el contenido del input
+    }
+
+    // Enfocar el header al cargar la página
+    window.onload = function() {
+        document.querySelector('header').focus();
+    };
+</script>
+</html>
