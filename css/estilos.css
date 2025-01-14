@@ -24,12 +24,12 @@ header {
     width: 100%;
 }
 
-header a {
+header a{
     text-decoration: none; /* Eliminar subrayado */
     color: inherit; /* Mantener el color del texto */
 }
     /* Estilo del título principal */
-    h1 {
+    h1{
         font-family: 'Moirai One', cursive; /* Fuente personalizada para el título */
         font-size: 60px;
         font-weight: bold; /* Tamaño de fuente */
@@ -79,7 +79,7 @@ header a {
     }
 
     /* Estilo del nombre del usuario */
-    .personal-card-nombre h2 {
+    .personal-card-nombre h2{
         font-size: 24px;
         color: #f0e8f1;
         margin: 0;
@@ -472,6 +472,36 @@ footer .form {
 
 .sub:hover {
     background-color: #FF1493;
+}
+
+.video-promocional{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.video-promocional h2{
+    font-size: 24px;
+    padding: 10px 10px;
+    color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    width: 100%;
+    margin: 20px 0px 0px 0px; 
+}
+
+.video-promocional video{
+    width: 50%;
+    height: 50%;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(192, 33, 241, 0.856); /* Sombra sutil */
+
+}
+
+.video-promocional p{
+    color: white;
+    font-style: italic;
 }
 
 
