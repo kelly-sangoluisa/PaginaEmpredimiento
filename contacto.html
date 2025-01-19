@@ -12,10 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header tabindex="0">
-        <a href="index.html">
+    <header>
+        <a href="index.html" id="first-element" tabindex="0">
             <h1>Site Craft</h1>
         </a>
+        <i class="fa fa-eye" id="toggle-eye" tabindex="0">
+            <p>Desactivar animaciones</p>
+        </i>
+        <i class="fa fa-eye-slash" id="toggle-eye-slash" tabindex="0" style="display: none;">
+            <p>Activar animaciones</p>
+        </i>
     </header>
     <div class="main-content">
         <div class="content">
@@ -54,7 +60,7 @@
         <p tabindex="0">Suscribete para más</p>
         <div class="form" >
             <input class="correo" type="email" placeholder="Ingresa tu correo electrónico" aria-label="Ingresa tu correo electrónico" tabindex="0">
-            <button class="sub" onclick="showAlert()" tabindex="0">Suscríbete</button>
+            <button class="sub" id="last-element" onclick="showAlert()" tabindex="0">Suscríbete</button>
         </div>
         <div id="alert-box" class="alert-box" role="alert" aria-live="polite" aria-label="Alerta Suscrito exitosamente">
             <i class="fa-solid fa-check"></i>
@@ -77,5 +83,54 @@
     window.onload = function() {
         document.querySelector('header').focus();
     };
+
+    document.getElementById('last-element').addEventListener('keydown', function(event) {
+        if (event.key === 'Tab' && !event.shiftKey) {
+            event.preventDefault();
+            document.getElementById('first-element').focus();
+        }
+    });
+
+    
+    document.getElementById('last-element').addEventListener('keydown', function(event) {
+        if (event.key === 'Tab' && !event.shiftKey) {
+            event.preventDefault();
+            document.getElementById('first-element').focus();
+        }
+    });
+
+    //ojo
+        document.getElementById('toggle-eye').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('toggle-eye-slash').style.display = 'inline';
+            disableAnimations();
+        });
+    
+        document.getElementById('toggle-eye-slash').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('toggle-eye').style.display = 'inline';
+            enableAnimations();
+        });
+    
+        function disableAnimations() {
+            var style = document.createElement('style');
+            style.id = 'disable-animations';
+            style.innerHTML = `
+                *:hover {
+                    animation: none !important;
+                    transition: none !important;
+                    transform: none !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    
+        function enableAnimations() {
+            var style = document.getElementById('disable-animations');
+            if (style) {
+                style.remove();
+            }
+        }
+    
 </script>
 </html>

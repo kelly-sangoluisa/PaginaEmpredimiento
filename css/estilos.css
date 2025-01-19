@@ -1,10 +1,17 @@
-/** {
+/*
+* {
     border: 1px solid red;
     
 }
-/* estilos.css */
 
+/* estilos.css */
+/* Resalta el borde de los elementos al enfocarse */
+  
 /* Estilo general del cuerpo */
+html{
+    cursor: pointer;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -13,8 +20,12 @@ body {
     background-image: url('../images/fondo.avif');
     background-size: cover;
     width: 100%;
+
 }
 
+:focus {
+    outline: 3px solid #ff002b;
+}
 /* Estilo del encabezado */
 header {
     background-color: #10083900; /* Color de fondo del encabezado */
@@ -22,11 +33,33 @@ header {
     margin: 0px;
     text-align: center;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
+
+header i{
+    font-size: 20px;
+    color: #ffffff;
+    width: 10%;
+    padding: 0px;
+    margin: 0px;
+}
+
+header i p{
+    font-size: 10px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+
 
 header a{
     text-decoration: none; /* Eliminar subrayado */
-    color: inherit; /* Mantener el color del texto */
+    width: 90%;
+    padding: 0px;
+    margin: 0px;
 }
     /* Estilo del título principal */
     h1{
@@ -35,6 +68,8 @@ header a{
         font-weight: bold; /* Tamaño de fuente */
         margin: 0; /* Sin margen */
         color: white;
+        padding: 0px;
+    margin: 0px;
         
     }
 
@@ -118,7 +153,6 @@ header a{
         border-radius: 30px;
         font-size: 16px;
         font-weight: bold;
-        cursor: pointer;
         margin-top: 15px;
         transition: background-color 0.3s;
         text-decoration: none;
@@ -482,7 +516,7 @@ footer .form {
 }
 .video-promocional h2{
     font-size: 24px;
-    padding: 10px 10px;
+    padding: 10px 0px 10px 0px;
     color: #ffffff;
     text-align: center;
     border-top: 1px solid #ffffff;
@@ -552,4 +586,21 @@ footer .form {
         font-size: 80%;
     }
 
+    header a{
+    width: 95%;
+    }
+
+    header i{
+        font-size: 8px;
+        color: #ffffff;
+        width: 5%;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    header i p{
+        font-size: 5px;
+        padding: 0px;
+        margin: 0px;
+    }
 }

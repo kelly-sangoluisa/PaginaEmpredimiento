@@ -8,6 +8,7 @@
     <title>Emprendimiento SiteCraft</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="images/icon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Moirai+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
@@ -16,9 +17,15 @@
 
 <body>
     <header>
-        <a href="index.html" tabindex="0">
+        <a href="index.html" id="first-element" tabindex="0">
             <h1>Site Craft</h1>
         </a>
+        <i class="fa fa-eye" id="toggle-eye" tabindex="0">
+            <p>Desactivar animaciones</p>
+        </i>
+        <i class="fa fa-eye-slash" id="toggle-eye-slash" tabindex="0" style="display: none;">
+            <p>Activar animaciones</p>
+        </i>
     </header>
     <div class="video-promocional">
         <h2 tabindex="0">Video Promocional</h2>
@@ -162,7 +169,7 @@
         <div class="form">
             <input class="correo" type="email" placeholder="Ingresa tu correo electrónico"
                 aria-label="Ingresa tu correo electrónico" tabindex="0">
-            <button class="sub" onclick="showAlert()" tabindex="0">Suscríbete</button>
+                <button class="sub" id="last-element" onclick="showAlert()" tabindex="0">Suscríbete</button>
         </div>
         <div id="alert-box" class="alert-box" role="alert" aria-live="polite" aria-label="Alerta Suscrito exitosamente">
             <i class="fa-solid fa-check"></i>
@@ -195,6 +202,49 @@
             }
         }
     });
+
+    document.getElementById('last-element').addEventListener('keydown', function(event) {
+        if (event.key === 'Tab' && !event.shiftKey) {
+            event.preventDefault();
+            document.getElementById('first-element').focus();
+        }
+    });
+
+    //ojo
+        document.getElementById('toggle-eye').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('toggle-eye-slash').style.display = 'inline';
+            disableAnimations();
+        });
+    
+        document.getElementById('toggle-eye-slash').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('toggle-eye').style.display = 'inline';
+            enableAnimations();
+        });
+    
+        function disableAnimations() {
+            var style = document.createElement('style');
+            style.id = 'disable-animations';
+            style.innerHTML = `
+                *:hover {
+                    animation: none !important;
+                    transition: none !important;
+                    transform: none !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    
+        function enableAnimations() {
+            var style = document.getElementById('disable-animations');
+            if (style) {
+                style.remove();
+            }
+        }
+    
+
+
 </script>
 
 </html>
